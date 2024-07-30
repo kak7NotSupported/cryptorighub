@@ -1,0 +1,14 @@
+{
+  "config" : {
+    "token" : "7209411504:AAGbtg9WJA_b49LKp99l0spLJW_f8rQQhNY"
+  },
+  "locale" : {
+    "welcome_text" : "privet",
+    "get_price_button" : "Получить прайс",
+    "get_price_text" : "Вы нажали кнопку получить прайс",
+    "make_an_order_button" : "Сделать заказ",
+    "make_an_order_text" : "Для оформления заказа свяжитесь с одним из наших менеджеров:\n @AlertBigLove\n @ArtmaniQQ\n или позвоните по номеру: \n +7 988 553 05 19\n +7 988 897 69 27\n Сайт: https://cryptorighub.nicepage.io/",
+    "current_availability_button" : "Актуальное наличие",
+    "current_availability_text" : "Вы нажали кнопку актуально наличие"
+  }
+}

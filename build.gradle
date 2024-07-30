@@ -13,9 +13,26 @@ dependencies {
     // https://mvnrepository.com/artifact/org.telegram/telegrambots
     implementation("org.telegram:telegrambots:6.9.7.1")
 
+    // https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.0.5'
+
+    compileOnly 'org.projectlombok:lombok:1.18.34'
+    annotationProcessor 'org.projectlombok:lombok:1.18.34'
+
+    testCompileOnly 'org.projectlombok:lombok:1.18.34'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.34'
+
+    implementation 'org.slf4j:slf4j-api:1.7.36' // версия может быть другой
+    implementation 'ch.qos.logback:logback-classic:1.4.12' // версия может быть другой
+
+
 
 }
 
 test {
     useJUnitPlatform()
 }
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+compileJava.options.encoding = 'UTF-8'
