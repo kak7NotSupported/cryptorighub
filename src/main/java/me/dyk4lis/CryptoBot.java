@@ -4,6 +4,7 @@ import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
+import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardMarkup;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 public class CryptoBot extends TelegramLongPollingBot {
@@ -30,44 +31,86 @@ public class CryptoBot extends TelegramLongPollingBot {
     private void handleMessage(Update update) {
         Message message = update.getMessage();
         String messageText = message.getText();
-        String responseText = "";
+        String responseText;
+        SendMessage sendMessage = new SendMessage();
+
+
 
         if (messageText.equals(locale.getPriceButtonText())) {
+            sendMessage.setReplyMarkup(getSecondKeyboardMarkup());
+
             responseText = locale.getPriceText();
         } else if (messageText.equals(locale.getMakeAnOrderButtonText())) {
+            sendMessage.setReplyMarkup(getMainKeyBoardMarkup());
             responseText = locale.getMakeAnOrderText();
         } else if (messageText.equals(locale.getCurrentAvailabilityButtonText())) {
+            sendMessage.setReplyMarkup(getMainKeyBoardMarkup());
             responseText = locale.getCurrentAvailabilityText();
-        } else {
-            responseText = "Неизвестная команда!";
+        }
+         else if (messageText.equals(locale.getThePriceIsOnOrderButtonText())) {
+            sendMessage.setReplyMarkup(getSecondKeyboardMarkup());
+            responseText = locale.getThePriceIsOnOrderButtonText();
+        }
+
+          else if (messageText.equals(locale.getMakeAnOrderText())) {
+            sendMessage.setReplyMarkup(getSecondKeyboardMarkup());
+            responseText = locale.getMakeAnOrderText();
+        }
+
+          else if (messageText.equals(locale.getStockAvailabilityButtonText())) {
+            sendMessage.setReplyMarkup(getSecondKeyboardMarkup());
+            responseText = locale.getStockAvailabilityButtonText();
+        }
+
+          else if (messageText.equals(locale.getMenuText())) {
+            sendMessage.setReplyMarkup(getMainKeyBoardMarkup());
+            responseText = "Вы вернулись на главную";
         }
 
 
-//        String responseText = switch (message.getText()) {
-//            case locale.getPriceButtonButtonText() -> ;
-//            case "Сделать заказ" -> configManager.getConfigDTO().getLocale().getMakeAnOrderButtonText();
-//            case "Актуальное наличие" -> configManager.getConfigDTO().getLocale().getCurrentAvailabilityButtonText();
-//            default -> "Неизвестная команда!";
-//        };
 
 
-        SendMessage sendMessage = new SendMessage();
 
+
+
+
+        else {
+            sendMessage.setReplyMarkup(getMainKeyBoardMarkup());
+            responseText = "Неизвестная команда!";
+        }
 
         sendMessage.setChatId(message.getChatId());
         sendMessage.setText(responseText);
 
-        sendMessage.setReplyMarkup(KeyboardManager.getInstance().createKeyBoardMarkup(new String[][]{
-                {locale.getPriceButtonText(), locale.getMakeAnOrderButtonText()},
-                {locale.getCurrentAvailabilityButtonText()},
 
-        }));
+//        sendMessage.setReplyMarkup(KeyboardManager.getInstance().createKeyBoardMarkup(new String[][]{
+//                {locale.getThePriceIsOnOrder(),locale.getPriceButtonText()},
+//                {locale.getStockAvailability(),locale.getMenu()},
+//
+//        }));
+
 
         try {
             execute(sendMessage);
         } catch (TelegramApiException e) {
             e.printStackTrace();
         }
+    }
+
+    private ReplyKeyboardMarkup getMainKeyBoardMarkup() {
+        return KeyboardManager.getInstance().createKeyBoardMarkup(new String[][]{
+                {locale.getPriceButtonText(), locale.getMakeAnOrderButtonText()},
+                {locale.getCurrentAvailabilityButtonText()},
+
+        });
+    }
+
+    private ReplyKeyboardMarkup getSecondKeyboardMarkup() {
+        return KeyboardManager.getInstance().createKeyBoardMarkup(new String[][]{
+                {locale.getThePriceIsOnOrderButtonText(), locale.getPriceButtonText()},
+                {locale.getStockAvailabilityButtonText(), locale.getMenuButtonText()},
+
+        });
     }
 }
 

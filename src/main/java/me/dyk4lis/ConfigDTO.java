@@ -20,6 +20,7 @@ public class ConfigDTO {
         private String token = "7209411504:AAGbtg9WJA_b49LKp99l0spLJW_f8rQQhNY";
     }
 
+
     @Data
     public static class Locale {
         @JsonProperty("welcome_text")
@@ -41,6 +42,29 @@ public class ConfigDTO {
         private String currentAvailabilityButtonText = "Актуальное наличие";
 
         @JsonProperty("current_availability_text")
-        private String currentAvailabilityText = "Вы нажали кнопку актуально наличие";
+        private String currentAvailabilityText = "Присылает сообщение - список, которое будет редактироваться Славой";
+
+        @JsonProperty("the_price_is_on_order_button")
+        private String thePriceIsOnOrderButtonText = "Прайс: под заказ";
+
+        @JsonProperty("pre_order_button")
+        private String thePricePreOrderButtonText = "Прайс: предзаказ";
+
+        @JsonProperty("stock_availability_button")
+        private String stockAvailabilityButtonText = "Прайс: в наличии на складе";
+
+        @JsonProperty("menu_button")
+        private String menuButtonText = "На главную";
+
+        @JsonProperty("menu_button_text")
+        private String menuText = "На главную";
+
+
+
+
+
+
+
+
     }
 }

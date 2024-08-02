@@ -9,6 +9,11 @@
     "make_an_order_button" : "Сделать заказ",
     "make_an_order_text" : "Для оформления заказа свяжитесь с одним из наших менеджеров:\n @AlertBigLove\n @ArtmaniQQ\n или позвоните по номеру: \n +7 988 553 05 19\n +7 988 897 69 27\n Сайт: https://cryptorighub.nicepage.io/",
     "current_availability_button" : "Актуальное наличие",
-    "current_availability_text" : "Вы нажали кнопку актуально наличие"
+    "current_availability_text" : "Присылает сообщение - список, которое будет редактироваться Славой",
+    "the_price_is_on_order" : "Прайс: под заказ",
+    "pre_order" : "Прайс: предзаказ",
+    "stock_availability" : "Прайс: в наличии на складе",
+    "menu_button" : "На главную",
+    "menu_button_text" : "На главную"
   }
 }
