@@ -25,6 +25,7 @@ dependencies {
     implementation 'org.slf4j:slf4j-api:1.7.36' // версия может быть другой
     implementation 'ch.qos.logback:logback-classic:1.4.12' // версия может быть другой
 
+    implementation 'org.postgresql:postgresql:42.2.23'
 
 
 }

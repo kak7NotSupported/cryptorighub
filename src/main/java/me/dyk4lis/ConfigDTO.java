@@ -47,8 +47,16 @@ public class ConfigDTO {
         @JsonProperty("the_price_is_on_order_button")
         private String thePriceIsOnOrderButtonText = "Прайс: под заказ";
 
+        @JsonProperty("the_price_is_on_order_text")
+        private String thePriceIsOnOrderText = "текс Прайс: под заказ";
+
         @JsonProperty("pre_order_button")
         private String thePricePreOrderButtonText = "Прайс: предзаказ";
+
+
+         @JsonProperty("pre_order_text")
+        private String thePricePreOrderText = "текс Прайс: предзаказ";
+
 
         @JsonProperty("stock_availability_button")
         private String stockAvailabilityButtonText = "Прайс: в наличии на складе";
